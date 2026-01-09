@@ -1,0 +1,30 @@
+# Docker images
+*.tar
+*.tar.gz
+
+# Environment files with sensitive data
+# Uncomment if you want to exclude .env files from git
+# **/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models (large files - consider using Git LFS or separate storage)
+# models/*.joblib

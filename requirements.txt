@@ -1,0 +1,5 @@
+asyncua
+joblib
+numpy
+python-dotenv
+scikit-learn

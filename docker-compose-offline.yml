@@ -1,0 +1,67 @@
+# ============================================================
+# Docker Compose para Ambiente OFFLINE
+# Não faz build, apenas usa imagem pré-carregada
+# ============================================================
+version: '3.8'
+
+services:
+  # ===================
+  # LINHA 01
+  # ===================
+  density-predictor-l01:
+    container_name: density_predictor_L01
+    image: density-predictor:1.0
+    # SEM build - usa imagem já carregada
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models_volume:ro
+    env_file:
+      - ./L01/app/.env
+
+  # ===================
+  # LINHA 02
+  # ===================
+  density-predictor-l02:
+    container_name: density_predictor_L02
+    image: density-predictor:1.0
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models_volume:ro
+    env_file:
+      - ./L02/app/.env
+
+  # ===================
+  # LINHA 06
+  # ===================
+  density-predictor-l06:
+    container_name: density_predictor_L06
+    image: density-predictor:1.0
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models_volume:ro
+    env_file:
+      - ./L06/app/.env
+
+  # ===================
+  # LINHA 10
+  # ===================
+  density-predictor-l10:
+    container_name: density_predictor_L10
+    image: density-predictor:1.0
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models_volume:ro
+    env_file:
+      - ./L10/app/.env
+
+  # ===================
+  # LINHA 16
+  # ===================
+  density-predictor-l16:
+    container_name: density_predictor_L16
+    image: density-predictor:1.0
+    restart: unless-stopped
+    volumes:
+      - ./models:/app/models_volume:ro
+    env_file:
+      - ./L16/app/.env
