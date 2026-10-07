@@ -147,7 +147,8 @@
     "branch": "operations/ot-vm71",
     "source_commit": null,
     "source_commit_reason": "The active image has no OCI source or revision label; provenance is the immutable local image ID plus controlled source extraction.",
-    "snapshot_commit": null,
-    "immutable_tag": null
+    "snapshot_commit": "5755d6abe2bead095a67a3b3bada4a3f087df605",
+    "snapshot_commit_scope": "Root commit containing the recovered source and deployment snapshot. The branch head adds only these exact Git provenance fields to this manifest.",
+    "immutable_tag": "deployed-ot-vm71-20261007-111911"
   }
 }
