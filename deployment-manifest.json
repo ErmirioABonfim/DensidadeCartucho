@@ -25,6 +25,16 @@
       "Docker Engine GET /containers/{id}/archive?path=/app"
     ]
   },
+  "production_unchanged_proof": {
+    "before_collected_at": "2026-10-07T14:07:15.372995+00:00",
+    "after_collected_at": "2026-10-07T14:20:00.855403+00:00",
+    "container_count_before": 32,
+    "container_count_after": 32,
+    "canonical_projection": "name + container ID + image ID + state for every container",
+    "before_projection_sha256": "615c7b972244971ffc380923d60fe261e400bebff16bdf801534642cde0b937b",
+    "after_projection_sha256": "615c7b972244971ffc380923d60fe261e400bebff16bdf801534642cde0b937b",
+    "differences": []
+  },
   "image": {
     "reference": "density-predictor:1.0",
     "id": "sha256:b8500737a3f0209b1c231a67a1ec54d4c7e13521ba30088933df7225adcba703",
@@ -140,6 +150,14 @@
     {
       "path": "/mnt/nextcloud-storage/openclaw-home/hermes-agent-home/cache/scratch/vm71-density-source-extraction.json",
       "sha256": "a406b79e2c88eded695687776cbd73559db9e89834bc0e1c40f9cdadd05c5349"
+    },
+    {
+      "path": "/mnt/nextcloud-storage/openclaw-home/hermes-agent-home/cache/scratch/vm71-live-inventory-latest.json",
+      "sha256": "e415355e21c10f44d86fac26dda2fe787cc7150302c893cd646cb3aa16bce2c4"
+    },
+    {
+      "path": "/mnt/nextcloud-storage/openclaw-home/hermes-agent-home/cache/scratch/vm71-density-before-after-comparison.json",
+      "sha256": "b662ad54d772599ebacb4386d4099ebee275829473df939eac9a095cfd2e40d6"
     }
   ],
   "git": {
