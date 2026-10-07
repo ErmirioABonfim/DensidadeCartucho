@@ -1,0 +1,23 @@
+# Segredos e configuração local
+.env
+.env.*
+!.env.example
+
+# Modelos e dados operacionais
+models/
+*.joblib
+*.pkl
+*.pickle
+
+# Artefatos de execução
+__pycache__/
+*.py[cod]
+*.log
+logs/
+cache/
+.pytest_cache/
+
+# IDE/SO
+.vscode/
+.idea/
+.DS_Store

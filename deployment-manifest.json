@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "application": "DensidadeCartucho",
+  "environment": "ot-vm71",
+  "host": {
+    "docker_hostname": "ULVRINFACIOT03",
+    "docker_id": "0270c2be-0dc2-4ad6-8ba2-bddfc036a294"
+  },
+  "collection": {
+    "collected_at": "2026-10-07T14:07:15.372995+00:00",
+    "route": "Silver/Linux -> waste-vm160-via-gamer-wg -> 192.168.30.71:9000",
+    "mode": "read-only",
+    "portainer_endpoint": {
+      "id": 3,
+      "name": "local",
+      "url": "unix:///var/run/docker.sock",
+      "status": 1
+    },
+    "method": [
+      "Docker Engine GET /containers/json?all=1",
+      "Docker Engine GET /containers/{id}/json",
+      "Docker Engine GET /images/{id}/json",
+      "Docker Engine GET /images/{id}/history",
+      "Docker Engine GET /containers/{id}/changes",
+      "Docker Engine GET /containers/{id}/archive?path=/app"
+    ]
+  },
+  "image": {
+    "reference": "density-predictor:1.0",
+    "id": "sha256:b8500737a3f0209b1c231a67a1ec54d4c7e13521ba30088933df7225adcba703",
+    "repo_digests": [],
+    "created": "2026-01-09T21:25:06.475000205Z",
+    "working_dir": "/app",
+    "command": [
+      "python",
+      "density_predictor.py"
+    ],
+    "oci_revision": null,
+    "oci_source": null,
+    "provenance_note": "A mutable tag was not used as provenance. The full local image ID was read from each active container inspect. All active components use this same ID. Container changes showed no application-file differences from the image outside the excluded model mount."
+  },
+  "deployment": {
+    "project": "densidadecartucho",
+    "working_directory": "/home/administrator/Documents/densidadeCartucho",
+    "compose_file": "/home/administrator/Documents/densidadeCartucho/docker-compose-offline.yml",
+    "application_path": "/app",
+    "external_models_mount": {
+      "source": "/home/administrator/Documents/densidadeCartucho/models",
+      "target": "/app/models_volume",
+      "read_only": true,
+      "included_in_snapshot": false
+    }
+  },
+  "active_components": [
+    {
+      "line": "L02",
+      "service": "density-predictor-l02",
+      "container": "density_predictor_L02",
+      "container_id": "afb6ce73ce779a82620af503f45aa666faec669ade002150ede8228b47d57148",
+      "image_id": "sha256:b8500737a3f0209b1c231a67a1ec54d4c7e13521ba30088933df7225adcba703",
+      "state": "running",
+      "compose_config_hash": "377a8f211309514ae040e170d565ed8a792126485af4c362b28549581b79a73e"
+    },
+    {
+      "line": "L06",
+      "service": "density-predictor-l06",
+      "container": "density_predictor_L06",
+      "container_id": "97055d8dba2b3302ee074c5e94baccf7d322638126502d8e5666ea0a267f0d36",
+      "image_id": "sha256:b8500737a3f0209b1c231a67a1ec54d4c7e13521ba30088933df7225adcba703",
+      "state": "running",
+      "compose_config_hash": "05f8aeb223c7979c5830d7c5f796d7258c95ef6bc14ff6516dbf8ffd2f9bcbd8"
+    },
+    {
+      "line": "L16",
+      "service": "density-predictor-l16",
+      "container": "density_predictor_L16",
+      "container_id": "36624ac9b86521ea50c00b41a2b53d51debb66fdef1c7aafcefb117fc4e16e38",
+      "image_id": "sha256:b8500737a3f0209b1c231a67a1ec54d4c7e13521ba30088933df7225adcba703",
+      "state": "running",
+      "compose_config_hash": "87b81ea7f7049ddfda8a21adb3596ac0b585be7658463e2282f82d414d7dc085"
+    }
+  ],
+  "recovered_tree": {
+    "source_container": "density_predictor_L02",
+    "source_container_id": "afb6ce73ce779a82620af503f45aa666faec669ade002150ede8228b47d57148",
+    "files": [
+      {
+        "runtime_path": "/app/density_predictor.py",
+        "snapshot_path": "app/density_predictor.py",
+        "sha256": "0e74291bedcc6d5c1bec05a9fa5c79fbc99627f6f42e3af523202b448a86c03a",
+        "size": 8235
+      },
+      {
+        "runtime_path": "/app/requirements.txt",
+        "snapshot_path": "requirements.txt",
+        "sha256": "f0f76f1f76dbec49f6d0dc03a9ef1d9e8bc3b1a433332b8620c1140acd8fa81b",
+        "size": 53
+      }
+    ],
+    "runtime_source_tree_sha256": "20a10162b1ad4e65d9e72a507cd1f05fbb3ac149ef5f6c04be0cb4387e898803",
+    "snapshot_normalized_tree_sha256": "ffa5a17a897accb14becce20a0394fc74b815349777c0775ec6b626cb88fd079",
+    "snapshot_normalized_tree_scope": "All regular snapshot files except deployment-manifest.json, hashed as path NUL sha256(content) NUL in bytewise path order.",
+    "lockfile_recovered": false,
+    "separate_startup_script_recovered": false,
+    "startup_command": [
+      "python",
+      "density_predictor.py"
+    ],
+    "dockerfile_evidence": "The included Dockerfile instructions match the active image history and the existing repository Dockerfile; the Dockerfile itself was not present under /app."
+  },
+  "configuration_contract": {
+    "required_configuration_names": [
+      "INTERVAL_SECONDS",
+      "MODEL_PATH",
+      "OPC_URL",
+      "STATUS_TAG",
+      "WRITE_TAG"
+    ],
+    "required_secret_names": [],
+    "secret_values_included": false,
+    "real_environment_included": false
+  },
+  "exclusions": [
+    "model files and models_volume",
+    "operational data and volumes",
+    "logs and caches",
+    "real .env files",
+    "credentials and secret values",
+    "actual OPC endpoints and node identifiers"
+  ],
+  "evidence": [
+    {
+      "path": "/home/silver/.openclaw/workspace/infra/vm71-live-readonly-github-provenance-inventory-2026-10-07.md",
+      "sha256": "5002bda5cf6dd3a6f8af2d8d0dab268277bd9e17d12bd9720f95d00df4d89c55"
+    },
+    {
+      "path": "/mnt/nextcloud-storage/openclaw-home/hermes-agent-home/cache/scratch/vm71-density-current-evidence.json",
+      "sha256": "8899f10916f0cb129b6daf4661ee00dc6b0c970179235f585c7b315e47371e77"
+    },
+    {
+      "path": "/mnt/nextcloud-storage/openclaw-home/hermes-agent-home/cache/scratch/vm71-density-source-extraction.json",
+      "sha256": "a406b79e2c88eded695687776cbd73559db9e89834bc0e1c40f9cdadd05c5349"
+    }
+  ],
+  "git": {
+    "repository": "ErmirioABonfim/DensidadeCartucho",
+    "branch": "operations/ot-vm71",
+    "source_commit": null,
+    "source_commit_reason": "The active image has no OCI source or revision label; provenance is the immutable local image ID plus controlled source extraction.",
+    "snapshot_commit": null,
+    "immutable_tag": null
+  }
+}

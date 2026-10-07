@@ -1,0 +1,44 @@
+name: densidadecartucho
+
+x-density-common: &density-common
+  image: density-predictor:1.0
+  build:
+    context: .
+    dockerfile: Dockerfile
+  restart: unless-stopped
+  volumes:
+    - type: bind
+      source: ${MODELS_DIR:-./models}
+      target: /app/models_volume
+      read_only: true
+
+services:
+  density-predictor-l02:
+    <<: *density-common
+    container_name: density_predictor_L02
+    environment:
+      OPC_URL: ${L02_OPC_URL:?configure L02_OPC_URL}
+      MODEL_PATH: ${L02_MODEL_PATH:?configure L02_MODEL_PATH}
+      STATUS_TAG: ${L02_STATUS_TAG:?configure L02_STATUS_TAG}
+      WRITE_TAG: ${L02_WRITE_TAG:?configure L02_WRITE_TAG}
+      INTERVAL_SECONDS: ${L02_INTERVAL_SECONDS:?configure L02_INTERVAL_SECONDS}
+
+  density-predictor-l06:
+    <<: *density-common
+    container_name: density_predictor_L06
+    environment:
+      OPC_URL: ${L06_OPC_URL:?configure L06_OPC_URL}
+      MODEL_PATH: ${L06_MODEL_PATH:?configure L06_MODEL_PATH}
+      STATUS_TAG: ${L06_STATUS_TAG:?configure L06_STATUS_TAG}
+      WRITE_TAG: ${L06_WRITE_TAG:?configure L06_WRITE_TAG}
+      INTERVAL_SECONDS: ${L06_INTERVAL_SECONDS:?configure L06_INTERVAL_SECONDS}
+
+  density-predictor-l16:
+    <<: *density-common
+    container_name: density_predictor_L16
+    environment:
+      OPC_URL: ${L16_OPC_URL:?configure L16_OPC_URL}
+      MODEL_PATH: ${L16_MODEL_PATH:?configure L16_MODEL_PATH}
+      STATUS_TAG: ${L16_STATUS_TAG:?configure L16_STATUS_TAG}
+      WRITE_TAG: ${L16_WRITE_TAG:?configure L16_WRITE_TAG}
+      INTERVAL_SECONDS: ${L16_INTERVAL_SECONDS:?configure L16_INTERVAL_SECONDS}

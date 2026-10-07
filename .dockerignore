@@ -1,0 +1,13 @@
+.git
+.gitignore
+.env
+.env.*
+models/
+*.joblib
+*.pkl
+*.pickle
+__pycache__/
+*.py[cod]
+*.log
+logs/
+cache/
